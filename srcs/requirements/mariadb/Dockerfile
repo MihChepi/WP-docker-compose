@@ -7,7 +7,6 @@ RUN 	apk update
 WORKDIR /root
 
 COPY	my.cnf					/etc/
-COPY	wordpress.sql			.
 COPY	start.sh				.
 COPY	create_database			.
 
