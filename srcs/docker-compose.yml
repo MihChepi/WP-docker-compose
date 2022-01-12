@@ -1,0 +1,55 @@
+version: "3.3"  # optional since v1.27.0
+
+services:
+  nginx:
+    container_name: nginx
+    build: requirements/nginx
+    volumes:
+      - wordpress:/var/www
+    networks:
+      - project
+    ports:
+      - "443:443"
+    depends_on:
+      - wordpress
+
+  wordpress:
+    container_name: wordpress
+    build: requirements/wordpress
+    volumes:
+      - wordpress:/var/www
+    networks:
+      - project
+    ports:
+      - "9000:9000"
+
+  mariadb:
+    container_name: mariadb
+    build: requirements/mariadb
+    volumes:
+      - wordpressdb:/var/lib/mysql
+    networks:
+      - project
+    ports:
+     - "3306:3306"
+
+volumes:
+  wordpressdb:
+    name: wordpressdb
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./db
+
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./wp
+
+networks:
+  project:
+    driver: bridge
