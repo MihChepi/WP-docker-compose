@@ -5,7 +5,7 @@ services:
     container_name: nginx
     build: requirements/nginx
     volumes:
-      - wordpress:/var/www
+      - wordpress:/var/www/wordpress
     networks:
       - project
     ports:
@@ -17,7 +17,7 @@ services:
     container_name: wordpress
     build: requirements/wordpress
     volumes:
-      - wordpress:/var/www
+      - wordpress:/var/www/wordpress
     networks:
       - project
     ports:
