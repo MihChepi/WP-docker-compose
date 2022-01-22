@@ -22,10 +22,10 @@
 /** Имя базы данных для WordPress */
 define('DB_NAME', 'wordpress');
 /** Имя пользователя MySQL */
-define('DB_USER', 'user'); #env
+define('DB_USER', {DB_USER});
 
 /** Пароль к базе данных MySQL */
-define('DB_PASSWORD', 'password');
+define('DB_PASSWORD', {DB_PASSWORD});
 
 /** Имя сервера MySQL */
 define('DB_HOST', 'mariadb'); #env
@@ -45,10 +45,9 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define( 'WP_HOME', 'https://localhost'); #ENV
-define( 'WP_SITEURL', 'https://localhost'); #ENV
-// define( 'WP_HOME', 'https://khermann.42.fr'); #ENV
-// define( 'WP_SITEURL', 'https://khermann.42.fr'); #ENV
+
+define( 'WP_HOME', 'https://khermann.42.fr');
+define( 'WP_SITEURL', 'https://khermann.42.fr');
 define('AUTH_KEY',         'H37`).p71%kF4n4K#Y`X!_Yr/a?p{/?NM9koMAD1]Sa.{yV-kBMuWK)U8kMf]Au6');
 define('SECURE_AUTH_KEY',  'zkA@>vqqKNv9x.H^{<4(&t1.TsY`&g 8EOH*jbkztr]i6N0%]-vIK3v2[+Ii^cJJ');
 define('LOGGED_IN_KEY',    't*J`~l [B,Q~3P1)%{VRRJt<2UD/Y,lc<L-W7cI}sX84/Iw2hPzP):Q=D}rUopRU');

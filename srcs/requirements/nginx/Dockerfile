@@ -3,7 +3,7 @@
 FROM alpine:3.15
 
 RUN		apk update
-WORKDIR 	/root
+WORKDIR	/root
 
 RUN		apk add nginx
 
@@ -17,6 +17,6 @@ RUN		apk add openssl ; \
 		-out /etc/nginx/ssl/khermann.crt \
 		-subj "/C=RU/ST=Kazan/L=Kazan/O=Ecole42/OU=School21/CN=khermann"
 
-EXPOSE		443
+EXPOSE	443
 
-CMD nginx -g "daemon off;"
+CMD		nginx -g "daemon off;"

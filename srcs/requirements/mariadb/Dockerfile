@@ -8,7 +8,6 @@ WORKDIR /root
 
 COPY	my.cnf					/etc/
 COPY	start.sh				.
-COPY	create_database			.
 
 RUN		apk add mysql mysql-client openrc;
 
