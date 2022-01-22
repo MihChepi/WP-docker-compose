@@ -54,7 +54,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./db
+      device: /home/khermann/data/wordpressdb
 
   wordpress:
     name: wordpress
@@ -62,7 +62,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./wp
+      device: /home/khermann/data/wordpress
 
 networks:
   project:

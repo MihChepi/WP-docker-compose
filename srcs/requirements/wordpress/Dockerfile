@@ -2,7 +2,7 @@
 
 FROM alpine:3.15
 
-RUN			apk update 
+RUN		apk update 
 WORKDIR 	/root
 
 RUN		apk add php7-fpm php7-mcrypt php7-soap php7-openssl php7-gmp php7-pdo_odbc php7-json \
@@ -20,7 +20,7 @@ ADD		wp-config.php www.conf start.sh ./
 
 
 
-RUN 	adduser -S -D -s /sbin/nologin -h /var/www -G www-data www-data
+RUN	 	adduser -S -D -s /sbin/nologin -h /var/www -G www-data www-data
 RUN		mv wordpress /var/www/ ;\
 		mv wp-config.php /var/www/wordpress ;\
 		mv www.conf /etc/php7/php-fpm.d/www.conf 
@@ -28,4 +28,3 @@ RUN		mv wordpress /var/www/ ;\
 EXPOSE  9000
 
 CMD sh start.sh
-#CMD php-fpm7 -F
