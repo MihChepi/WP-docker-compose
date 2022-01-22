@@ -1,9 +1,12 @@
-version: "3.3"  # optional since v1.27.0
+version: "3.9"  # optional since v1.27.0
 
 services:
   nginx:
     container_name: nginx
     build: requirements/nginx
+    restart: on-failure
+    domainname: khermann
+    hostname: khermann
     volumes:
       - wordpress:/var/www/wordpress
     networks:
@@ -16,22 +19,33 @@ services:
   wordpress:
     container_name: wordpress
     build: requirements/wordpress
+    restart: on-failure
     volumes:
       - wordpress:/var/www/wordpress
     networks:
       - project
     ports:
       - "9000:9000"
+    environment:
+        MYSQL_ROOT: ${MYSQL_ROOT}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
   mariadb:
     container_name: mariadb
     build: requirements/mariadb
+    restart: on-failure
     volumes:
       - wordpressdb:/var/lib/mysql
     networks:
       - project
     ports:
      - "3306:3306"
+    environment:
+        MYSQL_ROOT: ${MYSQL_ROOT}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+#       MYSQL_USER=${MYSQL_USER}
+#       MYSQL_USER_PASSWORD=${MYSQL_USER_PASSWORD}
+
 
 volumes:
   wordpressdb:

@@ -22,13 +22,13 @@
 /** Имя базы данных для WordPress */
 define('DB_NAME', 'wordpress');
 /** Имя пользователя MySQL */
-define('DB_USER', 'admin');
+define('DB_USER', 'user'); #env
 
 /** Пароль к базе данных MySQL */
-define('DB_PASSWORD', 'admin');
+define('DB_PASSWORD', 'password');
 
 /** Имя сервера MySQL */
-define('DB_HOST', 'mariadb');
+define('DB_HOST', 'mariadb'); #env
 
 /** Кодировка базы данных для создания таблиц. */
 define('DB_CHARSET', 'utf8');
@@ -45,16 +45,18 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define( 'WP_HOME', 'https://localhost/wordpress');
-define( 'WP_SITEURL', 'https://localhost/wordpress');
-define('AUTH_KEY',         'asddddw;kpokpoklllkkqqwdsadsadwdok12312312YUKGEQWLEHQWE@#$%^&&&#');
-define('SECURE_AUTH_KEY',  'asddddw;kpokpoklllkkqqwdsadsadwdok12312312YUKGEQWLEHQWE@#$%^&&&#');
-define('LOGGED_IN_KEY',    'asddddw;kpokpoklllkkqqwdsadsadwdok12312312YUKGEQWLEHQWE@#$%^&&&#');
-define('NONCE_KEY',        'asddddw;kpokpoklllkkqqwdsadsadwdok12312312YUKGEQWLEHQWE@#$%^&&&#');
-define('AUTH_SALT',        'asddddw;kpokpoklllkkqqwdsadsadwdok12312312YUKGEQWLEHQWE@#$%^&&&#');
-define('SECURE_AUTH_SALT', 'asddddw;kpokpoklllkkqqwdsadsadwdok12312312YUKGEQWLEHQWE@#$%^&&&#');
-define('LOGGED_IN_SALT',   'asddddw;kpokpoklllkkqqwdsadsadwdok12312312YUKGEQWLEHQWE@#$%^&&&#');
-define('NONCE_SALT',       'asddddw;kpokpoklllkkqqwdsadsadwdok12312312YUKGEQWLEHQWE@#$%^&&&#');
+define( 'WP_HOME', 'https://localhost'); #ENV
+define( 'WP_SITEURL', 'https://localhost'); #ENV
+// define( 'WP_HOME', 'https://khermann.42.fr'); #ENV
+// define( 'WP_SITEURL', 'https://khermann.42.fr'); #ENV
+define('AUTH_KEY',         'H37`).p71%kF4n4K#Y`X!_Yr/a?p{/?NM9koMAD1]Sa.{yV-kBMuWK)U8kMf]Au6');
+define('SECURE_AUTH_KEY',  'zkA@>vqqKNv9x.H^{<4(&t1.TsY`&g 8EOH*jbkztr]i6N0%]-vIK3v2[+Ii^cJJ');
+define('LOGGED_IN_KEY',    't*J`~l [B,Q~3P1)%{VRRJt<2UD/Y,lc<L-W7cI}sX84/Iw2hPzP):Q=D}rUopRU');
+define('NONCE_KEY',        'eE2Fx-Z>!&.j|,/B.+jc[[A57H4YB~KX=1^::m*5$`0/L%!qh~I$o>0!csY9)|}i');
+define('AUTH_SALT',        'yqK65~XnK`U;+&%/c$Q&wz^8P!MV@3uH70H_+qhG_&bRGxi)_[27r7xVK gX:g-m');
+define('SECURE_AUTH_SALT', '/1FU&YAP}V$5:b):gvC%7QlwgK+0<BT%yxpWkn8KVgDr~VW66u$KZsy.{-6&P3A<');
+define('LOGGED_IN_SALT',   'Ue+JxzL=M1AwcY2g.$giQ7o$8d*b%=vYKz08y,+1S[~QUs}`|SXtk2ws5_m]pVd?');
+define('NONCE_SALT',       'yf%?GR)&]/!x(GAe]fF8R Ym%4?-x1e-#=8W?V(+,SkQZX%faxq:osi+k GHfx+9');
 
 /**#@-*/
 
