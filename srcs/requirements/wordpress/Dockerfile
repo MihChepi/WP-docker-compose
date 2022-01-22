@@ -16,12 +16,14 @@ RUN		apk add wget tar ;\
 		tar -xzvf wordpress-5.7.tar.gz ;\
 		rm -rf wordpress-5.7.tar.gz
 
-ADD		wp-config.php www.conf .
-ADD		start.sh .
+ADD		wp-config.php www.conf start.sh ./
+
+
 
 RUN 	adduser -S -D -s /sbin/nologin -h /var/www -G www-data www-data
 RUN		mv wordpress /var/www/ ;\
 		mv wp-config.php /var/www/wordpress ;\
+		chmod 755 wp-config.php ;\
 		mv www.conf /etc/php7/php-fpm.d/www.conf 
 
 EXPOSE  9000
