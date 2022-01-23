@@ -6,8 +6,8 @@ RUN 	apk update
 
 WORKDIR /root
 
-ADD	my.cnf					/etc/
-ADD	start.sh initdb.sql			./
+ADD	my.cnf						/etc/
+ADD	start.sh initdb.sql		./
 
 RUN	apk add mysql mysql-client openrc;
 
