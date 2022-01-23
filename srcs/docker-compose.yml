@@ -10,7 +10,7 @@ services:
     volumes:
       - wordpress:/var/www/wordpress
     networks:
-      - project
+      - inception
     ports:
       - "443:443"
     depends_on:
@@ -23,7 +23,7 @@ services:
     volumes:
       - wordpress:/var/www/wordpress
     networks:
-      - project
+      - inception
     ports:
       - "9000:9000"
     depends_on:
@@ -41,7 +41,7 @@ services:
     volumes:
       - wordpressdb:/var/lib/mysql
     networks:
-      - project
+      - inception
     ports:
      - "3306:3306"
     environment:
@@ -66,5 +66,5 @@ volumes:
       device: /home/khermann/data/wordpress
 
 networks:
-  project:
+  inception:
     driver: bridge
