@@ -47,7 +47,8 @@ services:
     environment:
         MYSQL_USER: ${MYSQL_USER}
         MYSQL_USER_PASSWORD: ${MYSQL_USER_PASSWORD}
-
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        
 volumes:
   wordpressdb:
     name: wordpressdb
