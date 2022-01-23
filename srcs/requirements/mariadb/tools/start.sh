@@ -11,6 +11,7 @@ else
     echo "CREATE DATABASE wordpress;" | mysql
     echo "CREATE USER '${MYSQL_USER}' IDENTIFIED BY '${MYSQL_USER_PASSWORD}';" | mysql
     echo "GRANT ALL PRIVILEGES ON wordpress.* TO '${MYSQL_USER}'@'%';" | mysql
+    echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'%'; IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}'" | mysql
     echo "FLUSH PRIVILEGES;" | mysql
     mysql -u root wordpress < initdb.sql
 fi
