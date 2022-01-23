@@ -46,8 +46,8 @@ define('DB_COLLATE', '');
  * @since 2.6.0
  */
 
-define( 'WP_HOME', 'https://khermann.42.fr');
-define( 'WP_SITEURL', 'https://khermann.42.fr');
+define( 'WP_HOME', 'https://{WP_HOME}');
+define( 'WP_SITEURL', 'https://{WP_SITEURL}');
 define('AUTH_KEY',         'H37`).p71%kF4n4K#Y`X!_Yr/a?p{/?NM9koMAD1]Sa.{yV-kBMuWK)U8kMf]Au6');
 define('SECURE_AUTH_KEY',  'zkA@>vqqKNv9x.H^{<4(&t1.TsY`&g 8EOH*jbkztr]i6N0%]-vIK3v2[+Ii^cJJ');
 define('LOGGED_IN_KEY',    't*J`~l [B,Q~3P1)%{VRRJt<2UD/Y,lc<L-W7cI}sX84/Iw2hPzP):Q=D}rUopRU');

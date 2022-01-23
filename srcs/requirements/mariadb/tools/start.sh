@@ -9,8 +9,8 @@ then
     echo "DATABASE ALREADY EXISTS"
 else
     echo "CREATE DATABASE wordpress;" | mysql
-    echo "CREATE USER '${MYSQL_ROOT}' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';" | mysql
-    echo "GRANT ALL PRIVILEGES ON wordpress.* TO '${MYSQL_ROOT}'@'%';" | mysql
+    echo "CREATE USER '${MYSQL_USER}' IDENTIFIED BY '${MYSQL_USER_PASSWORD}';" | mysql
+    echo "GRANT ALL PRIVILEGES ON wordpress.* TO '${MYSQL_USER}'@'%';" | mysql
     echo "FLUSH PRIVILEGES;" | mysql
     mysql -u root wordpress < initdb.sql
 fi

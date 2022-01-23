@@ -26,9 +26,13 @@ services:
       - project
     ports:
       - "9000:9000"
+    depends_on:
+      - mariadb
     environment:
-        MYSQL_ROOT: ${MYSQL_ROOT}
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_USER_PASSWORD: ${MYSQL_USER_PASSWORD}
+        DOMAIN_NAME: ${DOMAIN_NAME}
+
 
   mariadb:
     container_name: mariadb
@@ -41,11 +45,8 @@ services:
     ports:
      - "3306:3306"
     environment:
-        MYSQL_ROOT: ${MYSQL_ROOT}
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-#       MYSQL_USER=${MYSQL_USER}
-#       MYSQL_USER_PASSWORD=${MYSQL_USER_PASSWORD}
-
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_USER_PASSWORD: ${MYSQL_USER_PASSWORD}
 
 volumes:
   wordpressdb:

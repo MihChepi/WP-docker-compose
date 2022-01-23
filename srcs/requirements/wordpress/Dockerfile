@@ -16,9 +16,7 @@ RUN		apk add wget tar ;\
 		tar -xzvf wordpress-5.7.tar.gz ;\
 		rm -rf wordpress-5.7.tar.gz
 
-ADD		wp-config.php www.conf start.sh ./
-
-
+ADD		conf/wp-config.php conf/www.conf tools/start.sh ./
 
 RUN	 	adduser -S -D -s /sbin/nologin -h /var/www -G www-data www-data
 RUN		mv wordpress /var/www/ ;\

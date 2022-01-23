@@ -7,8 +7,8 @@ WORKDIR	/root
 
 RUN		apk add nginx
 
-ADD		nginx_wp.conf /etc/nginx/http.d
-ADD		nginx.conf /etc/nginx/
+ADD		conf/nginx_wp.conf /etc/nginx/http.d
+ADD		conf/nginx.conf /etc/nginx/
 
 RUN		apk add openssl ; \ 	
 		mkdir /etc/nginx/ssl ; \
