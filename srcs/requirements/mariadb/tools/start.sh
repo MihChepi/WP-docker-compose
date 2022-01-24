@@ -1,6 +1,5 @@
 #!bin/sh
 openrc default
-rc-service mariadb setup
 rc-service mariadb start
 
 # init db
@@ -19,4 +18,5 @@ else
 fi
 
 rc-service mariadb stop
-/usr/bin/mysqld_safe
+
+/usr/bin/mysqld_safe 
