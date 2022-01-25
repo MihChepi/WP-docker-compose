@@ -1,22 +1,19 @@
 #!bin/sh
-openrc default
-rc-service mariadb start
-
-# init db
-if [[ ! -z "`mysql -qfsBe "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='wordpress'" 2>&1`" ]];
-then
-    echo "DATABASE ALREADY EXISTS"
+if ! [ -f /var/lib/mysql/wordpress/db.opt ]; then
+	openrc default
+	rc-service mariadb start
+	echo "CREATE DATABASE wordpress;" | mysql
+	mysql -u root wordpress < initdb.sql
+	echo "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_USER_PASSWORD}';" | mysql
+	echo "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_USER_PASSWORD}';" | mysql
+	echo "GRANT ALL PRIVILEGES ON wordpress.* TO '${MYSQL_USER}'@'%';" | mysql
+	echo "GRANT ALL PRIVILEGES ON wordpress.* TO '${MYSQL_USER}'@'localhost';" | mysql
+	echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';" | mysql
+	echo "FLUSH PRIVILEGES;" | mysql
+	rc-service mariadb stop
+	/usr/bin/mysqld_safe 
 else
-    echo "CREATE DATABASE wordpress;" | mysql
-    mysql -u root wordpress < initdb.sql
-    echo "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_USER_PASSWORD}';" | mysql
-    echo "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_USER_PASSWORD}';" | mysql
-    echo "GRANT ALL PRIVILEGES ON wordpress.* TO '${MYSQL_USER}'@'%';" | mysql
-    echo "GRANT ALL PRIVILEGES ON wordpress.* TO '${MYSQL_USER}'@'localhost';" | mysql
-    echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';" | mysql
-    echo "FLUSH PRIVILEGES;" | mysql
+	/usr/bin/mysqld_safe
 fi
 
-rc-service mariadb stop
 
-/usr/bin/mysqld_safe 
