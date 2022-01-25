@@ -4,7 +4,7 @@ services:
   nginx:
     container_name: nginx
     build: requirements/nginx
-    restart: on-failure
+    restart: always
     domainname: khermann
     hostname: khermann
     volumes:
@@ -19,7 +19,7 @@ services:
   wordpress:
     container_name: wordpress
     build: requirements/wordpress
-    restart: on-failure
+    restart: always 
     volumes:
       - wordpress:/var/www/wordpress
     networks:
@@ -37,7 +37,7 @@ services:
   mariadb:
     container_name: mariadb
     build: requirements/mariadb
-    restart: on-failure
+    restart: always
     volumes:
       - wordpressdb:/var/lib/mysql
     networks:
